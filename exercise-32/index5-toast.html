@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #one{
+            bottom: 0;
+            right: 0;
+            background-color: rgba(22, 12, 228, 0.679);
+            width: 350px;
+            padding: 20px;
+            position: fixed;
+        }
+        #one>li{
+            color: rgb(16, 16, 16);
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            border: 3px solid rgb(18, 18, 18);
+            padding: 10px;
+            border-radius: 50px 20px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="num()">click</button>
+    <ul id="one"></ul>
+</body>
+<script>
+    let flag = 1
+    function num(){
+        let num1 = prompt('enter your number')
+        document.getElementById('one').innerHTML+=`
+            <li> the first number: - ${num1}</li>
+        `
+        _li(flag)
+        flag++
+        console.log(flag);
+    }
+
+    function _li(i){
+        setTimeout(() => {
+            flag--
+            console.log(flag);
+            document.querySelector('#one>li:nth-of-type('+i+')').remove()
+        }, 20000);
+
+    }
+</script>
+</html>

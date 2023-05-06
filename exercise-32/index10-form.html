@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <form onsubmit="return _list()" action="reg.php" class="my_form border col-6" name="_list">
+                <input type="text" id="mail" class="col-12" placeholder="email" name="email">
+                <label class="text-dark" id="text-mail"></label>
+                <input type="password" id="password" name="password" class="col-12" placeholder="password">
+                <input type="password" id="pass" name="pass" class="col-12" placeholder="pass">
+                <label class="text-dark" id="text-pass"></label>
+                <button>send</button>
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    function _list() {
+        let _mail = document.forms['list']['email'].value
+        let _password = document.forms['list']['pass1'].value
+        let _pass = document.forms['list']['pass2'].value
+        let _mailStatus = 0
+        let m = 0
+
+
+        if (
+            _mail == '' ||
+            _mail == null ||
+            (_mail.search(/<script/)) >= 0
+        ) {
+            _mailStatus++
+        } else {
+            let _at = _mail.match(/@/g)
+            if (
+                (_mail.search(/@/)) < 3 ||
+                (_at.length) != 1 ||
+                (_mail.search(/[`!#$%^&*()+\s]/)) >= 0 ||
+                _mail.length < 10
+            ) {
+                _mailStatus++
+                m++
+            }
+
+            if (_mailStatus != 0) {
+                document.getElementById('text-mail').innerText = 'your email is incorect!'
+                document.getElementById('text-mail').classList.add('text-danger', 'border', 'border-danger')
+                document.getElementById('text-mail').classList.remove('text-success')
+                para++
+            }else{
+                document.getElementById('text-mail').innerText = 'email is true'
+                document.getElementById('text-mail').classList.add('text-success', 'border', 'border-success')
+                document.getElementById('text-mail').classList.remove('text-danger','border-danger')
+            }
+        }
+        if(
+            _password != _pass ||
+            _password == '' ||
+            _pass == '' ||
+            (_password.search(/<script/)) >= 0 ||
+            (_pass.search(/<script/)) >= 0 
+        ){
+            document.getElementById('text-pass').innerText='your pass is incorect!'
+            m++
+        }else{
+            if(
+                _password.length < 8 ||
+                (_password.search(/[A-z]/)) == -1 ||
+                (_password.search(/[0-9]/)) == -1 ||
+                (_password.search(/[a-z]/)) == -1 ||
+                (_password.search(/[~!@#$%^&*()_+]/)) == -1
+            ){
+                document.getElementById('text-pass').innerText='your pass is incorect!'
+                m++
+            }else{
+                document.getElementById('text-pass').innerText='your pass is true!'
+            }
+        }
+        if(
+            m > 0
+        ){
+            return false
+        }
+    }
+</script>
+</html>

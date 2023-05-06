@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>text/serach</h2>
+    <p>Lorem ipsum dolor mahsa sit amet consectetur adipisicing elit.mahasa Necessitatibus to commodi saepe  mahsa sunt error voluptates doloremque vero, nihil vitae to ut velit mahsa reiciendis recusandae itaque quod deserunt rerum, excepturi to fuga facilis dicta.</p>  
+</body>
+
+<script>
+
+    let temp = document.getElementsByTagName('p')[0].innerText
+
+    let num = temp.search(/to/i)
+    document.write(num + '<hr>')
+
+    num = temp.search(/mahsa/)
+    document.write(num + '<hr>')
+
+    num = temp.search(/[aqj]/)
+    document.write(num + '<hr>')
+
+    num = temp.search(/[A-Z]/)
+    document.write(num + '<hr>')
+
+    num = temp.search(/[0-9]/)
+    document.write(num + '<hr>')
+
+    num = temp.search(/[ا-ی]/)
+    document.write(num + '<hr>')
+
+    num = temp.search(/[!@#$%^&*(*()_+)]/)
+    document.write(num + '<hr>')
+
+    num = temp.search(/[A|b]/)
+    document.write(num + '<hr>')
+
+    num = temp.search(/[A-Z]/i)
+    document.write(num + '<hr>')
+
+    num = temp.replace('mahsa', 'delfani')
+    document.write(num + '<hr>')
+
+    
+    let m = prompt('enter your text')
+    num = temp.replace((new RegExp(m , 'd')), 'delfani')
+    document.write(num + '<hr>')
+</script>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</html>

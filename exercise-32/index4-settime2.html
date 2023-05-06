@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="click1()" id="click">start</button>
+    <button onclick="click2()" id="click">stop</button>
+    <h1 id="h1"></h1>
+</body>
+<script>
+    let temp = ''
+    function click1(){
+        temp = setTimeout(m, 2000)
+    }
+    function click2(){
+        clearTimeout(temp)
+    }
+
+
+    function m(){
+        alert('click ok,please')
+    }
+</script>
+</html>
